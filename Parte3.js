@@ -5,32 +5,21 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-// Função para calcular o checksum
+
 function calculateChecksum(data) {
-    let checksum = 0;
-
-    for (let i = 0; i < data.length; i++) {
-        checksum += data.charCodeAt(i);
-    }
-
-    return checksum & 0xff;
+    return data.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0) & 0xff;
 }
 
-// Pergunta ao usuário e calcula o checksum
-rl.question('Digite os dados de entrada (pelo menos 4 bits): ', resposta => {
-    const inputData = resposta;
 
+rl.question('Digite os dados de entrada (pelo menos 4 bytes): ', inputData => {
     if (inputData.length < 4) {
-        console.log('Erro: Dados de entrada devem ter pelo menos 4 bits.');
-        rl.close();
-        return;
+        console.log('Erro: Dados de entrada devem ter pelo menos 4 bytes.');
+    } else {
+        const checksumResult = calculateChecksum(inputData);
+
+        console.log(`Dados de entrada: ${inputData}`);
+        console.log(`Checksum: ${checksumResult.toString(16).toUpperCase()}`);
     }
-
-    const checksumResult = calculateChecksum(inputData);
-
-
-    console.log(`Dados de entrada: ${inputData}`);
-    console.log(`Checksum: ${checksumResult.toString(16).toUpperCase()}`);
 
     rl.close();
 });

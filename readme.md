@@ -7,8 +7,7 @@ Bom, escolhi a 'Opção A', pois tanto essa como a outra eram abordagens que eu 
 Utilizei o NodeJs porque estamos vendo na cadeira de Des. Web II.
 
 # Parte1: 
-Fiz com que o algoritmo verificasse a paridade dos números binários a fim de garantir a integridade de dados. Ao inserir um número binário composto por 0s e 1s, o programa calcula o bit de paridade e compara com o bit recebido.
-Calculei o bit de paridade contando os '1s' e usando o resto da divisão por 2. Em seguida, comparo o bit de paridade calculado com o recebido. Com base no cálculo, determino o bit de paridade esperado. Valido se os bits de paridade coincidem, indicando se a paridade é válida ou inválida. Se a entrada não atender aos requisitos, informo que é inválida.
+Fiz com que o algoritmo verificasse a paridade dos números binários a fim de garantir a integridade de dados. Ao inserir um número binário composto por 0s e 1s, o programa calcula o bit de paridade com base no número de bits "1" presentes na sequência. Se o número de bits "1" for par, o bit de paridade é definido como 0; se for ímpar, o bit de paridade é definido como 1.
 
 # Parte2:
 Aqui o algoritmo tem o objetivo de calcular o CRC (Cyclic Redundancy Check) e detectar erros em transmissões de dados binários. Como exemplo, utilizei o polinômio CRC (x^3 + x + 1).
