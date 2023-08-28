@@ -6,7 +6,8 @@ const rl = readline.createInterface({
 });
 
 function calcularBitDeParidade(binario) {
-    return binario.split('1').length % 2;
+    const numBits1 = binario.split('1').length - 1; // Conta o número de bits "1"
+    return numBits1 % 2 === 0 ? 0 : 1; // Define o bit de paridade
 }
 
 function validarEntrada(entrada) {
@@ -21,19 +22,12 @@ function validarEntrada(entrada) {
 function main() {
     rl.question('Digite um número binário (composto por 0s e 1s): ', (entradaUsuario) => {
         if (entradaUsuario.length <= 20 && validarEntrada(entradaUsuario)) {
-            const bitDeParidadeRecebido = Number(entradaUsuario.charAt(entradaUsuario.length - 1));
-            const binarioEntrada = entradaUsuario.slice(0, -1);
+            const bitDeParidadeCalculado = calcularBitDeParidade(entradaUsuario);
 
-            const bitDeParidadeCalculado = calcularBitDeParidade(binarioEntrada);
-
-            const ehValido = bitDeParidadeCalculado === bitDeParidadeRecebido;
-            const bitDeParidadeEsperado = ehValido ? bitDeParidadeRecebido : bitDeParidadeCalculado === 0 ? 1 : 0;
-
-            console.log(`Binário informado: ${binarioEntrada}${bitDeParidadeRecebido}`);
-            console.log(`Bit de Paridade recebido: ${bitDeParidadeRecebido}`);
-            console.log(`Bit de Paridade calculado: ${bitDeParidadeCalculado}`);
-            console.log(`Bit de Paridade esperado: ${bitDeParidadeEsperado}`);
-            console.log(`A paridade é válida: ${ehValido}`);
+            console.log(`Dados Originais: ${entradaUsuario}`);
+            console.log(`Contagem de Bits "1": ${entradaUsuario.split('1').length - 1} bits "1"`);
+            console.log(`Paridade Par: O número de bits "1" é ${entradaUsuario.split('1').length - 1} (paridade ${bitDeParidadeCalculado === 0 ? 'par' : 'ímpar'})`);
+            console.log(`Dados Transmitidos: ${entradaUsuario}${bitDeParidadeCalculado}`);
         } else {
             console.log('Entrada inválida. Certifique-se de que o número binário contém apenas 0s e 1s, e tem no máximo 20 caracteres.');
         }
