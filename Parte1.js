@@ -26,7 +26,7 @@ function main() {
 
             console.log(`Dados Originais: ${entradaUsuario}`);
             console.log(`Contagem de Bits "1": ${entradaUsuario.split('1').length - 1} bits "1"`);
-            console.log(`Paridade Par: O número de bits "1" é ${entradaUsuario.split('1').length - 1} (paridade ${bitDeParidadeCalculado === 0 ? 'par' : 'ímpar'})`);
+            console.log(`Paridade: O número de bits "1" é ${entradaUsuario.split('1').length - 1} (paridade ${bitDeParidadeCalculado === 0 ? 'par' : 'ímpar'})`);
             console.log(`Dados Transmitidos: ${entradaUsuario}${bitDeParidadeCalculado}`);
         } else {
             console.log('Entrada inválida. Certifique-se de que o número binário contém apenas 0s e 1s, e tem no máximo 20 caracteres.');
